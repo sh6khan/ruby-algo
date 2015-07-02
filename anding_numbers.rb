@@ -1,5 +1,9 @@
-# given two numbers, & (binary operation) all the numbers together
-# do it as effeciently as possible
+=begin
+	
+	Question: given two numbers, & (binary operation) all the numbers together
+			  do it as effeciently as possible
+	
+=end
 
 def binary_and_range(start, stop)
 

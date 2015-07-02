@@ -1,8 +1,16 @@
-# given an int, return the binary flipped int of that that number
-# example: given 32
-#   32 = 100000
-#   flipped = 011111
-# return 31 
+=begin
+	Employer: Coinbase
+	Type: Hacker Rank Coding Challenge
+
+
+	Question: given an int, return the binary flipped int of that that number
+
+			  given 32
+			  32 = 100000
+			  flipped = 011111
+		      return 31 
+=end
+
 
 def bit_flipper (n)
 	new_binary = 0

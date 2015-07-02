@@ -1,3 +1,12 @@
+=begin
+	Employer: Coinbase
+	Type: Hacker Rank Coding Challenge
+
+	Question: Fizz Buzz  
+	
+=end
+
+
 def fizz_buzz()
 	(1..100).each do |num|
 		fizz = true if num % 3 == 0

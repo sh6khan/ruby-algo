@@ -1,5 +1,9 @@
-# Every one knows FizzBuzz 
-# Do fizzbuzz with no conditionals
+=begin
+	Employer: Minted 
+	Type: Skype, Google Doc Coding
+
+	Question: Implement Fizz Buzz with out conditionals	
+=end
 
 
 # there are multiple ways to do this one, This is what I came up with 
