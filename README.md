@@ -1,2 +1,2 @@
-# interview-questions
-A list of some of the Interview questions that I got
+# algoriths in Ruby
+A list of some algorithms and problems in Ruby
