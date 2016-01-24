@@ -1,4 +1,7 @@
 class Interview
+  def initialize
+  end
+  
   def func(input)
     return input
   end
