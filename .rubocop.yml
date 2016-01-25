@@ -1,3 +1,6 @@
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
   Max: 15
+
+Metrics/LineLength:
+  Max: 100
