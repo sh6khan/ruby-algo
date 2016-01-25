@@ -1,14 +1,16 @@
+require './test_helper'
+
+# Interview Class
 class Interview
   def initialize
   end
-  
+
   def func(input)
-    return input
+    input
   end
 end
 
-require 'minitest/autorun'
-
+# Tests
 class Tests < MiniTest::Test
   def setup
     @interview = Interview.new
@@ -19,4 +21,3 @@ class Tests < MiniTest::Test
     assert_equal(1, @interview.func(input))
   end
 end
-
