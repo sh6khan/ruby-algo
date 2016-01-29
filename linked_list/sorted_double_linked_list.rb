@@ -38,7 +38,6 @@ class SortedList
         return
       end
 
-      # insert in between two nodes
       if current_node.next && current_node.next.value > new_value
         new_node.next = current_node.next
         new_node.prev = current_node
