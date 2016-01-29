@@ -3,6 +3,13 @@ require 'set'
 
 # remove duplicates from a linked list
 
+# Solution : keep a Set of all values in the linked list as you itterate over them
+# When the set already contains the current_node.value, delete the current_node
+# Deleteing the current_node can be done in two ways
+
+# allways have a prev_node that follows the current_node
+# then to delete prev_node, do prev_node.next = current_node.next
+
 class Node
   attr_accessor :value, :next
   def initialize(value)
