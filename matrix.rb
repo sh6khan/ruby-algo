@@ -1,74 +1,83 @@
 # given a 2D array print all the elements in a spiral order
 
+require 'minitest/autorun'
+
+class Interview
+	def print_in_spiral(m)
+		return [] if m.length == 0
+		return m.first if m.length == 1
+
+		top_length = m.length
+		side_length = m[0].length
 
 
-def print_in_spiral(m)
+		#set boundries
+		top = 0
+		left = 0
+		bottom = top_length - 1
+		right = side_length - 1
 
-	top_length = m.length
-	side_length = m[0].length
+		print_array = []
+
+		while(left <= right && top <= bottom)
+
+			#print top
+			(left..right).each do |i|
+				print_array << m[top][i]
+			end
+			top += 1
+
+			#print right side
+			(top..bottom).each do |i|
+				print_array << m[i][right]
+			end
+
+			right -= 1
 
 
-	#set boundries
-	top = 0
-	left = 0 
-	bottom = top_length - 1
-	right = side_length - 1
-	
+			#print bottom
+			(right).downto(left).each do |i|
+				print_array << m[bottom][i]
+			end
 
-	while(left < right && top < bottom)
+			bottom -= 1
 
-		#print top
-		(left..right).each do |i|
-			puts m[top][i]
+
+			#print left side
+			(bottom).downto(top).each do |i|
+				print_array << m[i][left]
+			end
+
+			left += 1
 		end
-		top += 1
-		
-		#print right side
-		(top..bottom).each do |i|
-			puts m[i][right]
-		end
-
-		right -= 1
-		
-	
-		#print bottom
-		(right).downto(left).each do |i|
-			puts m[bottom][i]
-		end
-
-		bottom -= 1
-			
-
-		#print left side
-		(bottom).downto(top).each do |i|
-			puts m[i][left]
-		end
-
-		left += 1
+		return print_array
 	end
 end
 
+class Tests < MiniTest::Test
+  def setup
+    @interview = Interview.new
+  end
 
-# test matrix
-matrix_one = [[1, 2, 3,4], 
-		      [12, 13, 14,5], 
-		      [11, 16, 15,6],
-		      [10, 9, 8,7]]
+  def test_one
+		# test matrix
+		matrix  = [[1, 2, 3,4],
+				      [12, 13, 14,5],
+				      [11, 16, 15,6],
+				      [10, 9, 8,7]]
 
-matrix_two = [[1,2,3,4,5],
-			  [16,17,18,19,6],
-			  [15,24,25,20,7],
-			  [14,23,22,21,8],
-			  [13,12,11,10,9]]
+	  expect = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 
-matrix_three = [[1,2,3],
-                [6,5,4],]
+    assert_equal(expect, @interview.print_in_spiral(matrix))
+  end
 
+	def test_two
+		matrix = [[1]]
+		assert_equal([1], @interview.print_in_spiral(matrix))
+	end
 
-print_in_spiral(matrix_one)
-
-puts
-print_in_spiral(matrix_two)
-
-puts
-print_in_spiral(matrix_three)
+	def test_three
+		matrix = [[1],[2]]
+		assert_equal([1,2], @interview.print_in_spiral(matrix))
+	end
+end
