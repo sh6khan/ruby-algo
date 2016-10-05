@@ -11,22 +11,29 @@ class Interview
   def next_server_number(names)
     sorted_names = counting_sort(names)
 
-    sorted_names.each_with_index do |server_name_count, index|
-      next if index == 0
-      return index if server_name_count == 0
+    missing_num = 1
+    sorted_names.each do |val|
+      return missing_num if missing_num != val
+      missing_num += 1
     end
+
+    return missing_num
   end
 
   def counting_sort(names)
-    max = names.max || 0
-
-    sorted = [0] * (max + 2)
+    count_arr = []
+    new_arr = []
 
     names.each do |name|
-      sorted[name] = 1
+      count_arr[name] = 1
     end
 
-    sorted
+    count_arr.each_with_index do |count, num|
+      next unless count
+      new_arr << num
+    end
+
+    return new_arr
   end
 
   def allocate(host_type)

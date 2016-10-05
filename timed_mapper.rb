@@ -7,7 +7,7 @@ class TimedMapper
 
   def put(key, value)
     current_time = Time.now
-    @mapper[key] = [] unless @mapper[key]
+    @mapper[key] ||= []
 
     @mapper[key] << {
       time: current_time,
@@ -22,12 +22,9 @@ class TimedMapper
 
     values.each do |value|
       put_time = value[:time]
-      if time <= put_time
-        return value[:value]
-      end
+      next if time > put_time
+      return value[:value]
     end
-
-    return nil
   end
 end
 
