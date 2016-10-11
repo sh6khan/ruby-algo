@@ -2,8 +2,7 @@ class Node
   attr_accessor :val, :left, :right
   def initialize(val)
     @val = val
-    @left = nil
-    @right = nil
+    @left, @right = nil, nil
   end
 
   def insert(val)
