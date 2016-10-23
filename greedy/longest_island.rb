@@ -15,25 +15,27 @@
 # use the greedy algorithm to find the longest continous sequence of
 # water to be flipped into land
 
-# INCOMPLETE
 def longest_water_seq(islands)
   max = 0
-  stack = []
-
+  current_water = 0
   islands.each_with_index do |body, index|
     if body == "L"
-
+      current_water = 0
+      next
     end
+
+    current_water += 1
+    max = [max, current_water].max
   end
 
-  return [pre_land_count, max, land_count]
+  return max
 end
 
 require 'minitest/autorun'
 
 describe "Find the longest sequence of land and water" do
   it "should work" do
-    islands = %w(L W L W W L W)
-    assert_equal(4, longest_water_seq(islands))
+    islands = %w(L W L W W W W W L W)
+    assert_equal(5, longest_water_seq(islands))
   end
 end

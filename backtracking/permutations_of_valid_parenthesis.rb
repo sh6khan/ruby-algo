@@ -1,7 +1,3 @@
-
-
-
-
 def get_all_permuatations(all_perms, open_count, close_count)
   # successfull base case on the edge node
   if close_count == 0
