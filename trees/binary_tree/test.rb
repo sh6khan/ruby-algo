@@ -10,7 +10,7 @@ describe "binary search tree" do
     tree.insert(8)
     tree.insert(12)
 
-    #tree.print_in_oder
+    tree.print_in_oder
   end
 
   it "should print in level order" do

@@ -31,32 +31,28 @@ class WordFinder
 
   def words_within(input, used_words)
 
-    # handle base case of edge nodes
-    # return true if edge node and is valid
+    # handle base case
     if is_word(input.join)
       used_words << input.join
       @all_valid_subwords << used_words
       return
     end
 
-
-
-    # iterate through each letter building up any possible word
-    # i.e. we are not at a valid edge node
     current_word = []
     input.each_with_index do |char, index|
       current_word << char
 
-      next unless is_word(current_word.join)
+      next if !is_word(current_word.join)
 
-      # now I branch
-      left_over = input.drop(index + 1)
       used_words << current_word.join
 
+      # this is where we branch
+      left_over = input.drop(index + 1)
       words_within(left_over, used_words)
 
       used_words = []
     end
+
   end
 end
 
