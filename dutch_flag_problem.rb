@@ -15,6 +15,8 @@ class Interview
     last = input.length - 1
 
     while (fast <= last)
+      print "#{input} => F: #{fast}, S: #{slow} L: #{last}"
+      puts
       if input[fast] == 'red'
         input[fast], input[slow] = input[slow], input[fast]
         fast += 1
@@ -40,10 +42,10 @@ class Tests < MiniTest::Test
     @interview = Interview.new
   end
 
-  def test_one
-    input = ['red', 'white', 'blue']
-    assert_equal(input, @interview.create_flag(input))
-  end
+  # def test_one
+  #   input = ['red', 'white', 'blue']
+  #   assert_equal(input, @interview.create_flag(input))
+  # end
 
   def test_two
     input = ['red', 'white', 'blue', 'red', 'white', 'blue', 'red', 'white', 'blue']

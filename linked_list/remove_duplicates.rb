@@ -8,7 +8,7 @@ require 'set'
 # Deleteing the current_node can be done in two ways
 
 # allways have a prev_node that follows the current_node
-# then to delete prev_node, do prev_node.next = current_node.next
+# then to delete current_node, do prev_node.next = current_node.next
 
 class Node
   attr_accessor :value, :next
